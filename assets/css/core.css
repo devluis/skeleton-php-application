@@ -1,0 +1,74 @@
+/*
+	Dosi - https://github.com/simonbingham/dosi
+	
+	Copyright (c) 2012, Simon Bingham
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+	files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
+	modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software 
+	is furnished to do so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+	LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+	IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+@charset "utf-8";
+
+/* reset */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, 
+canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video 
+{ border:0; font:inherit; font-size:100%; margin:0; padding:0; vertical-align:baseline; }
+body{ line-height:1; }
+ol, ul{ list-style:none; }
+blockquote, q{ quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after{ content:''; content:none; }
+table{ border-collapse:collapse; border-spacing:0; }
+
+/* clear fix */
+
+.clearfix:after{ clear:both; display:block; height:0; line-height:0; visibility:hidden; }
+.clearfix{ display:inline-block; }
+html[xmlns] .clearfix{ display:block; }
+* html .clearfix{ height:1%; }
+.clear{ clear:both; }
+
+/* tags */
+
+body{ font-size:14px; line-height:1.5em; }
+h1, h2, h3{ line-height:1.2em; margin-bottom:15px; }
+h1{ font-size:28px; }
+h2{ font-size:24px; }
+h3{ font-size:22px; }
+h4{ font-size:20px;  }
+p{ margin-bottom:15px; }
+ul{ margin-left:15px; }
+li{ list-style:disc; }
+a:link, a:visited{ text-decoration:none; }
+a:hover, a:active{ text-decoration:underline; }
+img{ vertical-align:bottom; }
+strong{ font-weight:bold; }
+
+/* layout */
+
+#print-header{ display:none; }
+#container{}
+#header{ margin-bottom:15px; }
+#navigation{ margin-bottom:15px; }
+#navigation a.selected{ text-decoration:underline; }
+#content{ margin-bottom:15px; }
+#footer{ margin-bottom:15px; }
+
+/* classes */
+
+/* print */
+
+@media print{
+	#print-header{ display:block; }
+	#header, #navigation, #footer{ display:none; }
+}
