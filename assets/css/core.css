@@ -66,6 +66,8 @@ strong{ font-weight:bold; }
 
 /* classes */
 
+.error{ color:#f00; }
+
 /* print */
 
 @media print{

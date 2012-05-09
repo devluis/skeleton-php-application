@@ -22,7 +22,7 @@
 	$metadescription = "";
 	$metakeywords = "";
 	$pagetitle = "";
-	$page = basename( $_SERVER['PHP_SELF'] );
+	$page = basename( $_SERVER[ "PHP_SELF" ] );
 	include( "includes/header.inc.php" ); 
 ?>
 
