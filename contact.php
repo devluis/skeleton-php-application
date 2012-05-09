@@ -18,18 +18,93 @@
 	*/
 ?>
 
-<?php 
+<?php
 	$metadescription = "";
 	$metakeywords = "";
 	$pagetitle = "";
-	$page = basename( $_SERVER['PHP_SELF'] );
-	include( "includes/header.inc.php" ); 
+	$page = basename( $_SERVER[ "PHP_SELF" ] );
+	include( "includes/header.inc.php" );
+	
+	if( !isset( $_POST[ "fname" ] ) ) $_POST[ "fname" ] = "";
+	if( !isset( $_POST[ "femail" ] ) ) $_POST[ "femail" ] = "";
+	if( !isset( $_POST[ "fmessage" ] ) ) $_POST[ "fmessage" ] = "";
+	
+	// process enquiry form
+	if( isset( $_POST[ "fsubmit" ] ) ) 
+	{
+		// validate enquiry
+		if( !isset( $_POST[ "fname" ] ) || !Strlen( Trim( $_POST[ "fname" ] ) ) )
+		{
+			$_POST[ "fnameerror" ] = true;
+			$_POST[ "ferror" ] = true;
+		}
+		if( !isset( $_POST[ "femail" ] ) || !preg_match( "(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})", $_POST[ "femail" ] ) )
+		{
+			$_POST[ "femailerror" ] = true;
+			$_POST[ "ferror" ] = true;
+		}
+		if( !isset( $_POST[ "fmessage" ] ) || !Strlen( Trim( $_POST[ "fmessage" ] ) ) )
+		{
+			$_POST[ "fmessageerror" ] = true;
+			$_POST[ "ferror" ] = true;
+		}
+		
+		if( isset( $_POST[ "ferror" ] ) ) $message = "<p class='error'>Please amend the highlighted fields.</p>";
+		
+		// send enquiry
+		if( !isset( $_POST[ "ferror" ] ) )
+		{
+			$to = "smnbin@gmail.com";
+			$subject = "Website Enquiry";
+			$message = "
+			<html>
+				<head>
+					<title>Website Enquiry</title>
+				</head>
+				<body>
+					<p>Please find attached an enquiry from your website.</p>
+					<p>Name: " . $_POST[ "fname" ] . "</p>
+					<p>Email address: " . $_POST[ "femail" ] . "</p>
+					<p>Message:</p><p>" . $_POST[ "fmessage" ] . "</p>
+				</body>
+			</html>
+			";			
+			$headers  = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+			$headers .= "To: Simon Bingham <smnbin@gmail.com>" . "\r\n";
+			$headers .= "From: Simon Bingham <smnbin@gmail.com>" . "\r\n";
+			if( mail( $to, $subject, $message, $headers ) ){
+				$message = "<p>Thank you. Your message has been received.</p>";
+			}else{
+				$message = "<p>Sorry. Your message could not be sent.</p>";
+			}
+			$_POST[ "fname" ] = "";
+			$_POST[ "femail" ] = "";
+			$_POST[ "fmessage" ] = "";			
+		}
+	}
 ?>
 
 <h1>Contact</h1>
-<p>Donec pretium imperdiet orci at ullamcorper. Phasellus justo mi, ultricies at mattis sagittis, gravida et mauris. Phasellus sapien sem, cursus non laoreet eget, dignissim consectetur tellus. Proin facilisis lectus vitae nulla porttitor sagittis! Etiam faucibus velit quis eros euismod posuere. Maecenas placerat venenatis sem. Sed felis augue, pellentesque quis euismod ut, tincidunt non magna. Nullam sit amet enim dui, in ultricies nunc. Suspendisse vel leo in dolor ullamcorper adipiscing. Aliquam erat volutpat. Integer sodales felis cursus leo malesuada elementum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consequat diam eget magna aliquet rutrum. Donec non molestie nulla. In hac habitasse platea dictumst.</p>
-<p>Aenean sem odio, ultrices vel accumsan non, elementum sed ligula. Vivamus enim urna, porta tincidunt bibendum a, tincidunt at tortor. Duis dolor lorem, varius faucibus pulvinar eget, sagittis in risus. Cras consequat purus et mauris ornare lobortis. Proin interdum risus id purus tincidunt lobortis! In porta neque in augue porta congue. In eu dui at enim lacinia vehicula. Pellentesque congue erat nisi. Vivamus vel elit urna, eu ultrices mi. Nunc id nunc elit. Nulla luctus ultrices dictum.</p>
-<p>Nunc laoreet consequat justo eget feugiat. Sed nibh leo, dictum sit amet laoreet nec, lacinia interdum ante! Donec et auctor est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi a pulvinar neque! Aliquam eu elit vitae mauris auctor posuere. Proin ac eros purus, et rutrum nulla. Phasellus ultrices, lorem sed tempor placerat, velit sapien euismod tortor, at volutpat turpis nulla ut ante. Etiam auctor, mauris interdum sodales porttitor, nisl mauris consectetur metus, sit amet tempus tortor nibh eget purus. Nam sed felis est, quis tincidunt est? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum commodo erat id hendrerit.</p>
 
+<?php if( isset( $message ) ) echo $message ?>
+
+<form action="contact.php" method="post">
+	<div <?php if( isset( $_POST[ "fnameerror" ] ) ) echo "class='error'" ?>>
+		<label for="fname">Name:</label>
+		<br /><input type="text" name="fname" id="fname" value="<?php echo $_POST[ 'fname' ] ?>" />
+	</div>
+	<div <?php if( isset( $_POST[ "femailerror" ] ) ) echo "class='error'" ?>>
+		<label for="femail">Email address:</label>
+		<br /><input type="text" name="femail" id="femail" value="<?php echo $_POST[ 'femail' ] ?>" />
+	</div>
+	<div <?php if( isset( $_POST[ "fmessageerror" ] ) ) echo "class='error'" ?>>
+		<label for="fmessage">Message:</label>
+		<br /><textarea name="fmessage" id="fmessage"><?php echo $_POST[ 'fmessage' ] ?></textarea>
+	</div>
+	<div>
+		<input type="submit" name="fsubmit" id="fsubmit" value="Send" />
+	</div>
+</form>
 
 <?php include_once "includes/footer.inc.php"; ?>
