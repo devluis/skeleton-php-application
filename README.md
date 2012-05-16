@@ -1,5 +1,14 @@
-# Dosi
+# Welcome to Dosi
 
-Version 2012.5.7
+## Introduction
 
-A skeleton for developing simple PHP applications.
+Dosi is a skeleton for developing simple PHP applications.
+
+## Minimum Requirements
+
+PHP
+
+
+## Version
+
+2012.5.16
