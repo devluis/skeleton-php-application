@@ -60,6 +60,7 @@ strong{ font-weight:bold; }
 #container{}
 #header{ margin-bottom:15px; }
 #navigation{ margin-bottom:15px; }
+#navigation ul{ margin:0; }
 #navigation a.selected{ text-decoration:underline; }
 #content{ margin-bottom:15px; }
 #footer{ margin-bottom:15px; }
