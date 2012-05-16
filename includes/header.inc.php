@@ -45,10 +45,12 @@
             </div> <!-- close header div --->
 
 			<div id="navigation">
-				<li><a href="./" <?php if( $page == "index.php" ) echo "class='selected'" ?>>Home</a></li>
-				<li><a href="services.php" <?php if( $page == "services.php" ) echo "class='selected'" ?>>Services</a></li>
-				<li><a href="about.php" <?php if( $page == "about.php" ) echo "class='selected'" ?>>About</a></li>
-				<li><a href="contact.php" <?php if( $page == "contact.php" ) echo "class='selected'" ?>>Contact</a></li>
+				<ul>
+					<li><a href="./" <?php if( $page == "index.php" ) echo "class='selected'" ?>>Home</a></li>
+					<li><a href="services.php" <?php if( $page == "services.php" ) echo "class='selected'" ?>>Services</a></li>
+					<li><a href="about.php" <?php if( $page == "about.php" ) echo "class='selected'" ?>>About</a></li>
+					<li><a href="contact.php" <?php if( $page == "contact.php" ) echo "class='selected'" ?>>Contact</a></li>
+				</ul>
 			</div> <!-- close navigation div --->
 
 			<div id="content">

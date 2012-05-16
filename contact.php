@@ -82,13 +82,17 @@
 			$headers .= "From: foobar <foobar>" . "\r\n";
 			if( mail( $to, $subject, $message, $headers ) ){
 				$message = "<p>Thank you. Your message has been received.</p>";
+				$success = true;
 			}else{
-				$message = "<p>Sorry. Your message could not be sent.</p>";
+				$message = "<p class='error'>Sorry. Your message could not be sent.</p>";
 			}
-			$_POST[ "fname" ] = "";
-			$_POST[ "ftelephone" ] = "";
-			$_POST[ "femail" ] = "";
-			$_POST[ "fmessage" ] = "";			
+			if( isset( $success ) )
+			{
+				$_POST[ "fname" ] = "";
+				$_POST[ "ftelephone" ] = "";
+				$_POST[ "femail" ] = "";
+				$_POST[ "fmessage" ] = "";
+			}
 		}
 	}
 ?>
