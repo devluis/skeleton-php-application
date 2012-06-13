@@ -37,14 +37,14 @@
 	</head>
 
 	<body>
-		<div id="print-header">print header content</div>
+		<div class="print-header">print header content</div>
 	
-		<div id="container">
-			<div id="header">
+		<div class="container">
+			<div class="header">
             	<p><a href="./" title="Return to home page">Home</a></p>
             </div> <!-- close header div --->
 
-			<div id="navigation">
+			<div class="navigation">
 				<ul>
 					<li><a href="./" <?php if( $page == "index.php" ) echo "class='selected'" ?>>Home</a></li>
 					<li><a href="services.php" <?php if( $page == "services.php" ) echo "class='selected'" ?>>Services</a></li>
@@ -53,4 +53,4 @@
 				</ul>
 			</div> <!-- close navigation div --->
 
-			<div id="content">
+			<div class="content">
