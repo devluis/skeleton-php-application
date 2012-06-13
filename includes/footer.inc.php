@@ -20,7 +20,7 @@
 
 			</div> <!-- close content div --->
             
-			<div id="footer"></div> <!-- close footer div --->
+			<div class="footer"></div> <!-- close footer div --->
 		</div> <!-- close container div --->
 	</body>
 </html>	
