@@ -55,7 +55,7 @@ h4{ font-size:20px; }
 a:link, a:visited{ text-decoration:none; }
 a:hover, a:active{ text-decoration:underline; }
 acronym, abbr{ border-bottom:1px dotted #666; }
-address, blockquote, div, dd, dl, h1, h2, h3, h4, ol, p, pre, table, ul{ margin-bottom:15px; }
+address, blockquote, dd, dl, h1, h2, h3, h4, ol, p, pre, table, ul{ margin-bottom:15px; }
 dt, em, strong{ font-weight:bold; }
 em, i{ font-style:italic; }
 img{ vertical-align:bottom; }
