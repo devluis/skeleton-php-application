@@ -1,4 +1,4 @@
-/*
+/* 
 	Dosi - https://github.com/simonbingham/dosi
 	
 	Copyright (c) 2012, Simon Bingham
@@ -65,6 +65,7 @@ ul li{ list-style:disc; }
 sub, sup{ height:0; line-height:1em; vertical-align:baseline; position:relative; }
 sub{ top:.5ex; }
 sup{ bottom:1ex; }
+textarea{ font-family:inherit; font-size:inherit; }
 th, td{ border:1px solid #ccc; padding:5px 10px; } 
 
 /* ==========================================================================
