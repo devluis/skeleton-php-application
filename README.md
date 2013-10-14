@@ -2,4 +2,4 @@
 
 ## Introduction
 
-A skelton application for creating a simple PHP site.
+A skeleton for creating a simple PHP application.
