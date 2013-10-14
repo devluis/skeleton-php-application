@@ -1,14 +1,5 @@
-# Welcome to Dosi
+# Skeleton PHP Application
 
 ## Introduction
 
-Dosi is a skeleton for developing simple PHP applications.
-
-## Minimum Requirements
-
-PHP
-
-
-## Version
-
-2012.5.16.21
+A skelton application for creating a simple PHP site.
